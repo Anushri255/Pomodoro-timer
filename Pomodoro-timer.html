@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <title>Pomodoro Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #container {
+            text-align: center;
+        }
+
+        #timer {
+            font-size: 4em;
+            margin: 20px 0;
+        }
+
+        #controls input {
+            width: 100px;
+            padding: 10px;
+            margin: 5px;
+            font-size: 1em;
+        }
+
+        #controls button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #controls button:hover {
+            background-color: #0056b3;
+        }
+
+        #status {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Pomodoro Timer</h1>
+        <div id="timer">
+            <span id="time">25:00</span>
+        </div>
+        <div id="controls">
+            <input type="number" id="work-duration" placeholder="Work (minutes)" min="1" max="60" value="25">
+            <input type="number" id="break-duration" placeholder="Break (minutes)" min="1" max="60" value="5">
+            <button id="start-button">Start</button>
+            <button id="stop-button">Stop</button>
+            <button id="reset-button">Reset</button>
+        </div>
+        <div id="status">Status: Idle</div>
+    </div>
+
+    <script></script>
+</body>
+
+</html>
