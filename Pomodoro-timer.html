@@ -69,7 +69,46 @@
         <div id="status">Status: Idle</div>
     </div>
 
-    <script></script>
+    <script>
+        let timer;
+let isBreak = false;
+let isRunning = false;
+let timeRemaining;
+const timeDisplay = document.getElementById('time');
+const statusDisplay = document.getElementById('status');
+
+document.getElementById('start-button').addEventListener('click', startTimer);
+document.getElementById('stop-button').addEventListener('click', stopTimer);
+document.getElementById('reset-button').addEventListener('click', resetTimer);
+
+function startTimer() {
+    if (isRunning) return;
+
+    const workDuration = parseInt(document.getElementById('work-duration').value) || 25;
+    const breakDuration = parseInt(document.getElementById('break-duration').value) || 5;
+
+    timeRemaining = (isBreak ? breakDuration : workDuration) * 60;
+    isRunning = true;
+    statusDisplay.textContent = `Status: ${isBreak ? 'Break' : 'Work'}`;
+
+    timer = setInterval(() => {
+        if (timeRemaining <= 0) {
+            clearInterval(timer);
+            isRunning = false;
+            isBreak = !isBreak;
+            statusDisplay.textContent = `Status: ${isBreak ? 'Break' : 'Work'}`;
+            if (Notification.permission === 'granted') {
+                new Notification('Pomodoro Timer', {
+                    body: isBreak ? 'Break time is over!' : 'Work time is over!',
+                });
+            }
+            return;
+        }
+        timeRemaining--;
+        updateDisplay();
+    }, 1000);
+}
+    </script>
 </body>
 
 </html>
