@@ -4,6 +4,8 @@
 
 The Pomodoro Timer is a simple web application that helps you manage your work and break periods using the Pomodoro Technique. It allows you to set custom durations for work and break intervals, start, stop, and reset the timer, and receive notifications when the timer ends.
 
+## Hosted on https://anushri255.github.io/Pomodoro-timer.io/
+
 ## Features
 
 - **Customizable Durations:** Set your preferred work and break times.
